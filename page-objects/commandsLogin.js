@@ -1,25 +1,27 @@
 var loginCommands = {
 	validateForm: function() {
-		return this.waitForElementVisible('body', 1000)
+		return this.waitForElementVisible('@username', 3000)
 			.verify.visible('@username')
 			.verify.visible('@password')
-			.verify.value('@submit', 'Log In')
+			.verify.visible('submit')
 			.verify.elementNotPresent('@error')
 	},
 	fillInForm: function(username, password) {
-		return this.waitForElementVisible('body', 1000)
+		return this.waitForElementVisible('@username', 3000)
 			.setValue('@username', username)
 			.setValue('@password', password)
 	},
 	submit: function() {
-		return this.verify.value('@submit', 'Log In')
+		return this.waitForElementVisible('@submit', 3000)
 			.click('@submit')
 	},
 	validateError: function(errorMessage) {
-		return this.verify.visible('@error')
+		return this.waitForElementVisible('@error', 3000)
 			.verify.containsText('@error', errorMessage)
-			.verify.valueContains('@username', '')
-			.verify.valueContains('@password', '')
+
+	},
+    validateLogin: function() {
+        return this.waitForElementVisible('@logo', 3000);
 	}
 };
 
@@ -31,16 +33,19 @@ module.exports = {
 	},
 	elements: {
 		username: {
-			selector: '#username'
+			selector: 'input[id=input_0]'
 		},
 		password: {
-			selector: '#password'
+			selector: 'input[type=password]'
 		},
 		submit: {
-			selector: 'input[type=submit]'
+			selector: 'button[class="md-accent md-raised md-button md-ink-ripple"]'
 		},
 		error: {
-			selector: '.error'
+			selector: 'div[class="error-message ng-scope"]'
+		},
+		logo: {
+			selector: 'div[class="company-logo"]'
 		}
 	}
 };

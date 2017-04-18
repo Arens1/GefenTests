@@ -1,7 +1,7 @@
 
 module.exports = {
   'Login Page Initial Render': function(browser) {
-    var login = browser.page.commandsLogin();
+      const login = browser.page.commandsLogin();
 
     login.navigate()
       .validateForm()
@@ -12,7 +12,7 @@ module.exports = {
 
 
   'Try to login with no username or password': function(browser) {
-    var login = browser.page.commandsLogin();
+      const login = browser.page.commandsLogin();
     
     login.navigate()
       .submit()
@@ -24,12 +24,12 @@ module.exports = {
 
 
   'Try to login with a username and no password': function(browser) {
-    var login = browser.page.commandsLogin();
+      const login = browser.page.commandsLogin();
 
     login.navigate()
       .fillInForm('abc', '')
       .submit()
-      .validateError('Password is empty')
+      .validateError('Password is empty');
 
     browser.end();
   },
@@ -37,7 +37,7 @@ module.exports = {
 
 
   'Try to login with a password and no username': function(browser) {
-    var login = browser.page.commandsLogin();
+      const login = browser.page.commandsLogin();
 
     login.navigate()
       .fillInForm('', 'test')
@@ -50,15 +50,25 @@ module.exports = {
 
 
   'Enter wrong username and password': function(browser) {
-    var login = browser.page.commandsLogin();
+    const login = browser.page.commandsLogin();
 
     login.navigate()
       .fillInForm('abc', '123')
       .submit()
-      .validateError('Invalid Username and/or Password')
+      .validateError('The username and password do not match')
 
     browser.end();
-  }
+  },
+
+    'Login with correct username and password': function(browser){
+      const login = browser.page.commandsLogin();
+
+        login.navigate()
+            .fillInForm('ArensGefen', 'A123456#')
+            .submit()
+            .validateLogin();
+        browser.end();
+    }
 
 
 };

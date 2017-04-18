@@ -32,7 +32,10 @@ module.exports = {
 				"path": ""
 			},
 			"desiredCapabilities": {
-				"browserName": "chrome"
+				"browserName": "chrome",
+                "chromeOptions" : {
+                    "args" : ["--disable-notifications"]//disables chrome notifications (https://github.com/nightwatchjs/nightwatch/wiki/Chrome-Setup)
+                }
 			}
 		},
 
