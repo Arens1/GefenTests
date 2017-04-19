@@ -10,8 +10,9 @@ module.exports = {
     'Login with correct username and password'(browser){
         const login = browser.page.commandsLogin();
 
-        login.navigate('https://backoffice.onestage.xyz')
-            .fillInForm('ArensGefen', 'A123456#')
+        login.navigate('https://backoffice.onestage.xyz');
+        browser.pause(3000);
+        login.fillInForm('arenstest', 'A123456#')
             .submit()
             .validateLogin();
     },
@@ -20,16 +21,19 @@ module.exports = {
         const messaging = browser.page.commandsComms();
 
         messaging.navigate('https://backoffice.onestage.xyz/chat')
-            .validateForm()
-            .startConversation()
-            .addParticipant('david arens')
-            .sendMessage('Hi, how are you doing?');
+            .validateForm();
+        browser.pause(3000);
+        messaging.startConversation();
+        browser.pause(3000);
+        messaging.searchParticipant('michael')
+            .sendMessage('Hi, how are you doing?')
     },
     'searchAndReplyToMessage'(browser){
         const messaging = browser.page.commandsComms();
 
-        messaging//.searchValue('natalie arens')
-           .openFirstConversation()
+        messaging.searchValue('arens');
+            browser.pause(3000);
+        messaging.openFirstConversation()
             .sendMessage('hey yo, this is my reply')
     }
 

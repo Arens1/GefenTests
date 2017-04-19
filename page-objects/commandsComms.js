@@ -12,8 +12,8 @@ const commsCommands = {
     startConversation(){
         //const pageObj =
         return this.waitForElementVisible('@composeButton', 5000)
-            .click('@composeButton');
-
+            .click('@composeButton')
+            .waitForElementVisible('@addParticipantTextField', 3000)
         //this.api.pause(3000);
         //return pageObj;
     },
@@ -24,19 +24,20 @@ const commsCommands = {
     searchValue(searchedValue){
         return this.waitForElementVisible('@searchButton', 3000)
             .click('@searchButton')
-            //.api.pause(1000)
             .waitForElementVisible('@searchTextField', 3000)
             .setValue('@searchTextField', searchedValue)
+            .waitForElementVisible('@firstConversationInList', 3000)
     },
-    addParticipant(participant){
+    searchParticipant(participant){
         return this.waitForElementVisible('@addParticipantTextField', 3000)
-            .setValue('@addParticipantTextField', participant)
-           // .api.pause(1000)
-            .waitForElementVisible( '@selectParticipant', 3000)
-            .click('@selectParticipant');
-            //.api.pause(1000)
-    }
-    ,
+                .setValue('@addParticipantTextField', participant)
+                .waitForElementVisible( '@selectParticipant', 10000)
+                .click('@selectParticipant')
+    },
+    chooseParticipant(){
+      return this.waitForElementVisible( '@selectParticipant', 3000)
+          .click('@selectParticipant')
+    },
     sendMessage(message){
         return this.waitForElementVisible('@newMessageTextField', 3000)
             .setValue('@newMessageTextField', message)
@@ -88,7 +89,7 @@ module.exports = {
             selector: 'div[class="EditHeader"] div[class="text-field"] div input[type="text"]'
         },
         selectParticipant: {
-            selector: 'div[class="ReactVirtualized__Grid__innerScrollContainer"] div:nth-of-type(2)'
+            selector: 'div[class="participant-item"]'
         },
         sendButton: {
             selector: 'div[class="send-button"] button[type="button"]'
