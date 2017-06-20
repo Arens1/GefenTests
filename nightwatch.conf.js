@@ -1,5 +1,5 @@
-var seleniumServer = require('selenium-server');
-var phantomjs = require('phantomjs-prebuilt')
+const seleniumServer = require('selenium-server');
+const phantomjs = require('phantomjs-prebuilt')
 
 module.exports = {
 	"src_folders": ["tests"],

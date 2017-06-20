@@ -16,25 +16,53 @@ module.exports = {
             .submit()
             .validateLogin();
     },
+    'click on messaging card'(browser){
+        const dashboard = browser.page.commandsDashboard();
+
+        dashboard.validateForm()
+            .clickMessaging();
+        browser.pause(3000)
+    },
 
     'composeNewMessage'(browser){
         const messaging = browser.page.commandsComms();
 
-        messaging.navigate('https://backoffice.onestage.xyz/chat')
-            .validateForm();
+        messaging.validateForm();
         browser.pause(3000);
         messaging.startConversation();
         browser.pause(3000);
-        messaging.searchParticipant('michael')
+        messaging.searchParticipant('michael arens');
+        browser.pause(5000);
+        messaging.selectParticipant()
             .sendMessage('Hi, how are you doing?')
     },
+    'startGroupChat'(browser){
+        const messaging = browser.page.commandsComms();
+        browser.pause(3000);
+        messaging.startConversation();
+        browser.pause(3000);
+        messaging.searchParticipant('michael arens');
+        browser.pause(5000);
+        messaging.selectParticipant();
+        browser.pause(2000);
+        messaging.searchParticipant('natalie arens');
+        browser.pause(5000);
+        messaging.selectParticipant()
+            .sendMessage('Hi, how are you doing? emailtest@gefen.online ')
+            .changeGroupSubject('test group')
+            .addParticipantToGroup('Zurab Arens');
+        browser.pause(5000);
+        messaging.selectParticipant()
+    },
+
     'searchAndReplyToMessage'(browser){
         const messaging = browser.page.commandsComms();
 
         messaging.searchValue('arens');
-            browser.pause(3000);
+        browser.pause(3000);
         messaging.openFirstConversation()
-            .sendMessage('hey yo, this is my reply')
+            .sendMessage('hey yo, this is my reply');
+        browser.end();
     }
 
 };

@@ -2,7 +2,6 @@
  * Created by michaelarens on 3/19/17.
  */
 
-
 const commsCommands = {
     validateForm() {
         return this.waitForElementVisible('@composeButton', 5000)
@@ -13,7 +12,7 @@ const commsCommands = {
         //const pageObj =
         return this.waitForElementVisible('@composeButton', 5000)
             .click('@composeButton')
-            .waitForElementVisible('@addParticipantTextField', 3000)
+            .waitForElementVisible('@addParticipantTextField', 3000);
         //this.api.pause(3000);
         //return pageObj;
     },
@@ -32,31 +31,26 @@ const commsCommands = {
         return this.waitForElementVisible('@addParticipantTextField', 3000)
                 .setValue('@addParticipantTextField', participant)
                 .waitForElementVisible( '@selectParticipant', 10000)
-                .click('@selectParticipant')
     },
-    chooseParticipant(){
-      return this.waitForElementVisible( '@selectParticipant', 3000)
-          .click('@selectParticipant')
+    selectParticipant(){
+        return this.waitForElementVisible('@selectParticipant', 5000)
+            .click('@selectParticipant')
+
     },
     sendMessage(message){
         return this.waitForElementVisible('@newMessageTextField', 3000)
             .setValue('@newMessageTextField', message)
             .waitForElementVisible('@sendButton', 3000)
             .click('@sendButton')
-            .waitForElementVisible('@lastChatText', 3000)
-            .verify.containsText('@lastChatText', message)
+            .waitForElementVisible('@lastChatText', 3000);
+           // .verify.containsText('@lastChatText', message)
 
     },
     addParticipantToGroup(groupParticipant){
-        return this.waitForElementVisible('@addParticipantTextField', 3000)
-            .click('@groupChatConversation')
-            .api.pause(1000)
-            .waitForElementVisible('@addParticipantButton', 3000)
+        return this.waitForElementVisible('@addParticipantButton', 3000)
             .click('@addParticipantButton')
             .waitForElementVisible('@addParticipantTextField', 3000)
             .setValue('@addParticipantTextField', groupParticipant)
-            .waitforElementVisible('@selectParticipant', 3000)
-            .click('@selectParticipant')
     },
     changeGroupSubject(groupName){
         return this.waitForElementVisible('@editButton', 3000)
@@ -101,7 +95,7 @@ module.exports = {
             selector: 'input[id="textf"]'
         },
         firstConversationInList: {
-            selector: 'div[class="subject"]:nth-of-type(1)'
+            selector: 'div[class="ConversationListItem"]:nth-of-type(1)'
         },
         specificConversationOptionButton: {
             selector: 'div[class="actions-menu"] div:nth-of-type(1) button[type="button"]'

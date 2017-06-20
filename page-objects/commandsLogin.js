@@ -21,8 +21,9 @@ var loginCommands = {
 
 	},
     validateLogin: function() {
-        return this.waitForElementVisible('@logo', 3000);
+        return this.waitForElementVisible('@logo', 10000);
 	}
+
 };
 
 

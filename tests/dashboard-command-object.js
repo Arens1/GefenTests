@@ -3,23 +3,21 @@
  */
 module.exports = {
     'Login with correct username and password': function(browser){
-        var login = browser.page.commandsLogin();
+        const login = browser.page.commandsLogin();
 
-        login.navigate()
+        login.navigate('https://backoffice.onestage.xyz')
             .fillInForm('ArensGefen', 'A123456#')
             .submit()
             .validateLogin();
         //browser.end();
     },
     'click on messaging card': function(browser){
-        var dashboard = browser.page.commandsDashboard();
+        const dashboard = browser.page.commandsDashboard();
 
         dashboard.validateForm()
             .clickMessaging();
         browser.pause(3000)
             .end();
-
-
     }
 
 };
