@@ -1,26 +1,26 @@
-var loginCommands = {
-	validateForm: function() {
+const loginCommands = {
+	validateForm(){
 		return this.waitForElementVisible('@username', 3000)
 			.verify.visible('@username')
 			.verify.visible('@password')
-			.verify.visible('submit')
+			.verify.visible('@submit')
 			.verify.elementNotPresent('@error')
 	},
-	fillInForm: function(username, password) {
+	fillInForm(username, password){
 		return this.waitForElementVisible('@username', 3000)
 			.setValue('@username', username)
 			.setValue('@password', password)
 	},
-	submit: function() {
+	submit(){
 		return this.waitForElementVisible('@submit', 3000)
 			.click('@submit')
 	},
-	validateError: function(errorMessage) {
+	validateError(errorMessage){
 		return this.waitForElementVisible('@error', 3000)
 			.verify.containsText('@error', errorMessage)
 
 	},
-    validateLogin: function() {
+    validateLogin(){
         return this.waitForElementVisible('@logo', 10000);
 	}
 

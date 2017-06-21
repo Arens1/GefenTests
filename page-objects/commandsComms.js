@@ -52,6 +52,12 @@ const commsCommands = {
             .waitForElementVisible('@addParticipantTextField', 3000)
             .setValue('@addParticipantTextField', groupParticipant)
     },
+    removeParticipantFromGroup(){
+        return this.waitForElementVisible('@addParticipantButton', 3000)
+            .click('@addParticipantButton')
+            .waitForElementVisible("removeFirstParticipantButton", 3000)
+            .click("removeFirstParticipantButton")
+    },
     changeGroupSubject(groupName){
         return this.waitForElementVisible('@editButton', 3000)
             .click('@editButton')
@@ -135,6 +141,9 @@ module.exports = {
         },
         newMessageTextField: {
             selector: 'div[class="text-area"] div div:nth-of-type(2) textarea[rows="1"]:nth-of-type(2)'
+        },
+        removeFirstParticipantButton:{
+            selector: 'div[class="Participants"] div div div:nth-of-type(1) button'
         }
     }
 };

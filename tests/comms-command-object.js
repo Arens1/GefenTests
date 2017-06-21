@@ -10,7 +10,7 @@ module.exports = {
     'Login with correct username and password'(browser){
         const login = browser.page.commandsLogin();
 
-        login.navigate('https://backoffice.onestage.xyz');
+        login.navigate('');
         browser.pause(3000);
         login.fillInForm('arenstest', 'A123456#')
             .submit()
@@ -36,7 +36,7 @@ module.exports = {
         messaging.selectParticipant()
             .sendMessage('Hi, how are you doing?')
     },
-    'startGroupChat'(browser){
+    'groupChat'(browser){
         const messaging = browser.page.commandsComms();
         browser.pause(3000);
         messaging.startConversation();
@@ -53,6 +53,7 @@ module.exports = {
             .addParticipantToGroup('Zurab Arens');
         browser.pause(5000);
         messaging.selectParticipant()
+           .removeParticipantFromGroup()
     },
 
     'searchAndReplyToMessage'(browser){
