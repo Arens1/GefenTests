@@ -12,7 +12,7 @@ module.exports = {
 
         login.navigate('');
         browser.pause(3000);
-        login.fillInForm('arenstest', 'A123456#')
+        login.fillInForm('yotamlevy', 'Y12345678*')
             .submit()
             .validateLogin();
     },
@@ -35,6 +35,18 @@ module.exports = {
         browser.pause(5000);
         messaging.selectParticipant()
             .sendMessage('Hi, how are you doing?')
+    },
+    'composeNewSmsMessage'(browser){
+        const messaging = browser.page.commandsComms();
+
+        messaging.validateForm();
+        browser.pause(3000);
+        messaging.startSmsConversation();
+        browser.pause(3000);
+        messaging.searchParticipant('Adar Locker');
+        browser.pause(5000);
+        messaging.selectParticipant().sendSmsMessage('this is an automated sms message');
+
     },
     'groupChat'(browser){
         const messaging = browser.page.commandsComms();
