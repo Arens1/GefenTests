@@ -9,12 +9,10 @@ const commsCommands = {
             .verify.visible('@searchButton')
     },
     startConversation(){
-        //const pageObj =
         return this.waitForElementVisible('@composeButton', 5000)
             .click('@composeButton')
             .waitForElementVisible('@addParticipantTextField', 3000);
-        //this.api.pause(3000);
-        //return pageObj;
+
     },
     openFirstConversation(){
         return this.waitForElementVisible('@firstConversationInList', 3000)
@@ -55,7 +53,7 @@ const commsCommands = {
     removeParticipantFromGroup(){
         return this.waitForElementVisible('@addParticipantButton', 3000)
             .click('@addParticipantButton')
-            .waitForElementVisible("removeFirstParticipantButton", 3000)
+            .waitForElementVisible("removeFirstParticipantButton", 6000)
             .click("removeFirstParticipantButton")
     },
     changeGroupSubject(groupName){
@@ -67,6 +65,19 @@ const commsCommands = {
             .click('@vButton')
             .waitForElementVisible('@groupChatSubject', 3000)
             .verify.containsText('@groupChatSubject', groupName)
+    },
+    clickUploadImage(imageURL){
+        return this.waitForElementVisible('@uploadImageButton', 3000)
+            .click('@uploadImageButton')
+            .setValue('@uploadImageButton', require('path').resolve(__dirname + imageURL));
+    },
+    clickChannelsButton(){
+        return this.waitForElementVisible('@channelsButton', 3000)
+            .click('@channelsButton')
+    },
+    clickSMSChannel(){
+        return this.waitForElementVisible('@firstChannelButton', 3000)
+            .click('@firstChannelButton')
     }
 };
 
@@ -143,7 +154,16 @@ module.exports = {
             selector: 'div[class="text-area"] div div:nth-of-type(2) textarea[rows="1"]:nth-of-type(2)'
         },
         removeFirstParticipantButton:{
-            selector: 'div[class="Participants"] div div div:nth-of-type(1) button'
+            selector: 'div[class="chat-mainbar"] div[class="ConversationContent"] div[class="Participants"] div div div div:nth-of-type(2)'
+        },
+        uploadImageButton:{
+            selector: 'div[class="AddContent"] button[type="button"]'
+        },
+        channelsButton: {
+            selector: 'div[class="ChannelPicker"]'
+        },
+        firstChannelButton: {
+            selector: 'div[class="pop-menu"] div[class="item-style"]:nth-of-type(1)'
         }
     }
 };

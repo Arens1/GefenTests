@@ -23,11 +23,11 @@ module.exports = {
 
 
 
-  'Try to login with a username and no password'(browser){
+  'Try to login with a username and no password'(browser, username, password){
       const login = browser.page.commandsLogin();
 
     login.navigate()
-      .fillInForm('abc', '')
+      .fillInForm(username, password)
       .submit()
       .validateError('The username and password do not match');
 
@@ -36,7 +36,7 @@ module.exports = {
 
 
 
-  'Try to login with a password and no username'(browser){
+  'Try to login with a password and no username'(browser, username, password){
       const login = browser.page.commandsLogin();
 
     login.navigate()
@@ -49,32 +49,32 @@ module.exports = {
 
 
 
-  'Enter wrong username and password'(browser){
+  'Enter wrong username and password'(browser, username, password){
     const login = browser.page.commandsLogin();
 
     login.navigate()
-      .fillInForm('abc', '123')
+      .fillInForm(username, password)
       .submit()
       .validateError('The username and password do not match');
 
     browser.end();
   },
 
-    'Login with correct username and password'(browser){
+    'Login with correct username and password'(browser, username, password){
       const login = browser.page.commandsLogin();
 
         login.navigate()
-            .fillInForm('ArensGefen', 'A123456#')
+            .fillInForm(username, password)
             .submit()
             .validateLogin();
-        browser.end();
+       // browser.end();
     },
 
-    'Login with email and password'(browser){
+    'Login with email and password'(browser, email, password){
         const login = browser.page.commandsLogin();
 
         login.navigate()
-            .fillInForm('michaela@gefen.online', 'A123456#')
+            .fillInForm(email, password)
             .submit()
             .validateLogin();
         browser.end();

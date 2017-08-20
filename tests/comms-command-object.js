@@ -2,70 +2,76 @@
  * Created by michaelarens on 3/23/17.
  */
 
-//const loginCommandObj = require('./login-command-object');
-//const _ = require('lodash');
+const loginCommandObj = require('./login-command-object');
+const dashboardCommandObj = require('./dashboard-command-object');
+const fs = require('fs');
+const login = loginCommandObj['Login with correct username and password'];
+const dashboard = dashboardCommandObj['click on messaging card'];
 
-//const commsCommandObj = {
-module.exports = {
-    'Login with correct username and password'(browser){
-        const login = browser.page.commandsLogin();
 
-        login.navigate('');
-        browser.pause(3000);
-        login.fillInForm('arenstest', 'A123456#')
-            .submit()
-            .validateLogin();
-    },
-    'click on messaging card'(browser){
-        const dashboard = browser.page.commandsDashboard();
+    module.exports = {
+        'Login'(browser){
+            login(browser, 'ArensGefen', 'A123456#');
+        },
+        'open Messaging'(browser){
+            dashboard(browser);
+        },
 
-        dashboard.validateForm()
-            .clickMessaging();
-        browser.pause(3000)
-    },
+        'composeNewMessage'(browser){
+            const messaging = browser.page.commandsComms();
 
-    'composeNewMessage'(browser){
-        const messaging = browser.page.commandsComms();
+            messaging.validateForm();
+            browser.pause(3000);
+            messaging.startConversation();
 
-        messaging.validateForm();
-        browser.pause(3000);
-        messaging.startConversation();
-        browser.pause(3000);
-        messaging.searchParticipant('michael arens');
-        browser.pause(5000);
-        messaging.selectParticipant()
-            .sendMessage('Hi, how are you doing?')
-    },
-    'groupChat'(browser){
-        const messaging = browser.page.commandsComms();
-        browser.pause(3000);
-        messaging.startConversation();
-        browser.pause(3000);
-        messaging.searchParticipant('michael arens');
-        browser.pause(5000);
-        messaging.selectParticipant();
-        browser.pause(2000);
-        messaging.searchParticipant('natalie arens');
-        browser.pause(5000);
-        messaging.selectParticipant()
-            .sendMessage('Hi, how are you doing? emailtest@gefen.online ')
-            .changeGroupSubject('test group')
-            .addParticipantToGroup('Zurab Arens');
-        browser.pause(5000);
-        messaging.selectParticipant()
-           .removeParticipantFromGroup()
-    },
+            browser.pause(3000);
+            messaging.searchParticipant("david arens");
+            browser.pause(5000);
+            messaging.selectParticipant()
+                .sendMessage('Hi, how are you doing? emailtest@gefen.online')
+        },
+         'groupChat'(browser){
+         const messaging = browser.page.commandsComms();
+         browser.pause(3000);
+         messaging.startConversation();
+         browser.pause(3000);
+         messaging.searchParticipant('michael arens');
+         browser.pause(5000);
+         messaging.selectParticipant();
+         browser.pause(2000);
+         messaging.searchParticipant('natalie arens');
+         browser.pause(5000);
+         messaging.selectParticipant()
+         .sendMessage('Hi, how are you doing? emailtest@gefen.online ')
+         .changeGroupSubject('test group')
+         .addParticipantToGroup('Zurab Arens');
+         browser.pause(5000);
+         messaging.selectParticipant();
+         //.removeParticipantFromGroup()
+         },
 
-    'searchAndReplyToMessage'(browser){
-        const messaging = browser.page.commandsComms();
+         'searchAndReplyToMessage'(browser){
+         const messaging = browser.page.commandsComms();
 
-        messaging.searchValue('arens');
-        browser.pause(3000);
-        messaging.openFirstConversation()
-            .sendMessage('hey yo, this is my reply');
-        browser.end();
-    }
+         messaging.searchValue('arens');
+         browser.pause(3000);
+         messaging.openFirstConversation()
+         .sendMessage('hey yo, this is my reply');
+         },
 
-};
+         'uploadImage'(browser){
+         const messaging = browser.page.commandsComms();
+
+         messaging.clickUploadImage('/test.png');
+         console.log(fs.existsSync(__dirname+ '/test.png'));
+         browser.pause(2000);
+
+         }//,
+         //'end'(browser){
+         //   browser.end();
+         //}
+
+         };
+
 
 //module.exports = Object.assign({}, commsCommandObj, _.pick(loginCommandObj, ['Login with correct username and password']))

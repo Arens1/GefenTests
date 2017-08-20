@@ -3,9 +3,9 @@
  */
 
 const dashboardCommands = {
-    validateForm: function () {
+    validateForm(){
         return this.waitForElementVisible('@logo', 3000)
-            .verify.visible('@messaging');
+            .verify.visible('@messaging')
            /* .verify.visible('@calendar')
             .verify.visible('@emailCampaigns')
             .verify.visible('@smsCampaigns')
@@ -13,18 +13,32 @@ const dashboardCommands = {
             .verify.visible('@adwords')
             .verify.visible('@website')
             .verify.visible('@siteThemes')
-            .verify.visible('@reports')
-            .verify.visible('@settings')*/
+            .verify.visible('@reports')*/
+            .verify.visible('@operation')
+            .verify.visible('@associates')
+            .verify.visible('@contacts')
+
 
     },
-    clickMessaging: function() {
-        return this.waitForElementVisible('@messaging', 3000)
-            .click('@messaging');
-           // .waitForElementVisible('@messaging', 3000);
-           /* .browser.getTitle(function(title) {
-            this.assert.equal(typeof title, 'string');
-            this.assert.equal(title, 'Messaging');
-        });// assert title*/
+    clickDashboardIcon(){
+        return this.waitForElementVisible('@dashboardIcon', 3000)
+            .click('@dashboardIcon')
+    },
+    clickMessaging(){
+       return this.waitForElementVisible('@messaging', 3000)
+           .click('@messaging')
+    },
+    clickOperation(){
+        return this.waitForElementVisible('@operation', 3000)
+            .click('@operation')
+    },
+    clickContacts(){
+        return this.waitForElementVisible('@contacts', 3000)
+            .click('@contacts')
+    },
+    clickAssociates(){
+        return this.waitForElementVisible('@associates', 3000)
+            .click('@associates')
     }
 };
 
@@ -50,6 +64,12 @@ module.exports = {
         documents: {
             selector: 'gf-dashboard-card[gfpermitted="userMaster.documents"]'
         },
+        contacts: {
+            selector: 'gf-dashboard-card[gfpermitted="userMaster.my_network"]'
+        },
+        associates: {
+            selector: 'gf-dashboard-card[gfpermitted="userMaster.associates"]'
+        },
         adwords: {
             selector: 'gf-dashboard-card[gfpermitted="userMaster.adwords"]'
         },
@@ -74,6 +94,9 @@ module.exports = {
         },
         logo: {
             selector: 'div[class="company-logo"]'
+        },
+        dashboardIcon: {
+            selector: 'a[class="md-icon-button md-button"]'
         }
     }
 
