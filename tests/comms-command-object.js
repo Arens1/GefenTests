@@ -30,6 +30,18 @@ const dashboard = dashboardCommandObj['click on messaging card'];
             messaging.selectParticipant()
                 .sendMessage('Hi, how are you doing? emailtest@gefen.online')
         },
+        'composeNewSmsMessage'(browser){
+            const messaging = browser.page.commandsComms();
+
+            messaging.validateForm();
+            browser.pause(3000);
+            messaging.startSmsConversation();
+            browser.pause(3000);
+            messaging.searchParticipant('Adar Locker');
+            browser.pause(5000);
+            messaging.selectParticipant().sendSmsMessage('this is an automated sms message');
+
+        },
          'groupChat'(browser){
          const messaging = browser.page.commandsComms();
          browser.pause(3000);

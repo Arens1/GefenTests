@@ -8,6 +8,13 @@ const commsCommands = {
             .verify.visible('@composeButton')
             .verify.visible('@searchButton')
     },
+    startSmsConversation(){
+        return this.waitForElementVisible('@composeButton', 5000)
+
+            .click("@composeButton")
+            .waitForElementVisible('@addParticipantTextField', 3000);
+
+    },
     startConversation(){
         return this.waitForElementVisible('@composeButton', 5000)
             .click('@composeButton')
@@ -42,6 +49,18 @@ const commsCommands = {
             .click('@sendButton')
             .waitForElementVisible('@lastChatText', 3000);
            // .verify.containsText('@lastChatText', message)
+
+    },
+    sendSmsMessage(message){
+        return this.waitForElementVisible('@newMessageTextField', 3000)
+            .setValue('@newMessageTextField', message)
+            .waitForElementVisible('@channelPickerButton', 3000)
+            .click('@channelPickerButton')
+            .waitForElementVisible('@smsChatButton', 3000)
+            .click('@smsChatButton')
+            .waitForElementVisible('@sendButton', 3000)
+            .click('@sendButton')
+            .waitForElementVisible('@lastChatText', 3000).click('@sendButton');
 
     },
     addParticipantToGroup(groupParticipant){
@@ -153,6 +172,12 @@ module.exports = {
         newMessageTextField: {
             selector: 'div[class="text-area"] div div:nth-of-type(2) textarea[rows="1"]:nth-of-type(2)'
         },
+        channelPickerButton: {
+            selector: 'div[class="ChannelPicker"]'
+       },
+       smsChatButton: {
+            selector: 'div[class="pop-menu"] div[class="item-style"]:nth-of-type(2)' //svg[style="display: inline-block;"] //problematic
+           },
         removeFirstParticipantButton:{
             selector: 'div[class="chat-mainbar"] div[class="ConversationContent"] div[class="Participants"] div div div div:nth-of-type(2)'
         },
