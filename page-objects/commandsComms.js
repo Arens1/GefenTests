@@ -8,17 +8,22 @@ const commsCommands = {
             .verify.visible('@composeButton')
             .verify.visible('@searchButton')
     },
+    startConversation(){
+        return this.waitForElementVisible('@composeButton', 5000)
+          .click('@composeButton')
+          .waitForElementVisible('@addParticipantTextField', 3000);
+
+    },
     startSmsConversation(){
         return this.waitForElementVisible('@composeButton', 5000)
-
             .click("@composeButton")
             .waitForElementVisible('@addParticipantTextField', 3000);
 
     },
-    startConversation(){
+    startEmailConversation(){
         return this.waitForElementVisible('@composeButton', 5000)
-            .click('@composeButton')
-            .waitForElementVisible('@addParticipantTextField', 3000);
+          .click('@composeButton')
+          .waitForElementVisible('@addParticipantTextField', 3000);
 
     },
     openFirstConversation(){
@@ -35,7 +40,7 @@ const commsCommands = {
     searchParticipant(participant){
         return this.waitForElementVisible('@addParticipantTextField', 3000)
                 .setValue('@addParticipantTextField', participant)
-                .waitForElementVisible( '@selectParticipant', 10000)
+                .waitForElementVisible( '@selectParticipant', 11000) //10000
     },
     selectParticipant(){
         return this.waitForElementVisible('@selectParticipant', 5000)
@@ -56,11 +61,23 @@ const commsCommands = {
             .setValue('@newMessageTextField', message)
             .waitForElementVisible('@channelPickerButton', 3000)
             .click('@channelPickerButton')
-            .waitForElementVisible('@smsChatButton', 3000)
+            .waitForElementVisible('@smsChatButton', 3500)
             .click('@smsChatButton')
             .waitForElementVisible('@sendButton', 3000)
             .click('@sendButton')
-            .waitForElementVisible('@lastChatText', 3000).click('@sendButton');
+            .waitForElementVisible('@lastChatText', 3500).click('@sendButton');
+
+    },
+    sendEmailMessage(message){
+        return this.waitForElementVisible('@newMessageTextField', 3000)
+          .setValue('@newMessageTextField', message)
+          .waitForElementVisible('@channelPickerButton', 3000)
+          .click('@channelPickerButton')
+          .waitForElementVisible('@emailChatButton', 3500)
+          .click('@emailChatButton')
+          .waitForElementVisible('@sendButton', 3000)
+          .click('@sendButton')
+          .waitForElementVisible('@lastChatText', 3500).click('@sendButton');
 
     },
     addParticipantToGroup(groupParticipant){
@@ -108,6 +125,7 @@ module.exports = {
     elements: {
         composeButton: {
             selector: 'div[class="chat-sidebar"] div[class="ConversationsBar"] div[class="new-button"] div button'
+            // ' <div [style="color: rgba(0, 0, 0, 0.87); background-color: rgb(255, 255, 255); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;"]'
         },
         addParticipantButton: {
             selector: 'div[class="actions"] button[class="add-par-button"]'
@@ -175,9 +193,12 @@ module.exports = {
         channelPickerButton: {
             selector: 'div[class="ChannelPicker"]'
        },
-       smsChatButton: {
-            selector: 'div[class="pop-menu"] div[class="item-style"]:nth-of-type(2)' //svg[style="display: inline-block;"] //problematic
+        smsChatButton: {
+            selector: 'div[class="pop-menu"] div[class="item-style"]:nth-of-type(2)' //svg[style="display: inline-block;"]
            },
+        emailChatButton: {
+            selector: 'div[class="pop-menu"] div[class="item-style"]:nth-of-type(3)'
+        },
         removeFirstParticipantButton:{
             selector: 'div[class="chat-mainbar"] div[class="ConversationContent"] div[class="Participants"] div div div div:nth-of-type(2)'
         },
