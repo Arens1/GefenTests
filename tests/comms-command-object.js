@@ -25,7 +25,7 @@ const dashboard = dashboardCommandObj['click on messaging card'];
             messaging.startConversation();
 
             browser.pause(3000);
-            messaging.searchParticipant("david arens");
+            messaging.searchParticipant("yotam levy");
             browser.pause(5000);
             messaging.selectParticipant()
                 .sendMessage('Hi, how are you doing? emailtest@gefen.online')
@@ -37,9 +37,21 @@ const dashboard = dashboardCommandObj['click on messaging card'];
             browser.pause(3000);
             messaging.startSmsConversation();
             browser.pause(3000);
-            messaging.searchParticipant('Adar Locker');
+            messaging.searchParticipant('yotam levy');
             browser.pause(5000);
             messaging.selectParticipant().sendSmsMessage('this is an automated sms message');
+
+        },
+        'composeNewEmailMessage'(browser){
+            const messaging = browser.page.commandsComms();
+
+            messaging.validateForm();
+            browser.pause(3000);
+            messaging.startEmailConversation();
+            browser.pause(3000);
+            messaging.searchParticipant('yotam levy');
+            browser.pause(5000);
+            messaging.selectParticipant().sendSmsMessage('this is an automated E-Mail message');
 
         },
          'groupChat'(browser){
