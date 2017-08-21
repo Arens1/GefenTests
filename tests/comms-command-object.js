@@ -39,7 +39,7 @@ const dashboard = dashboardCommandObj['click on messaging card'];
             browser.pause(3000);
             messaging.searchParticipant('yotam levy');
             browser.pause(5000);
-            messaging.selectParticipant().sendSmsMessage('this is an automated sms message');
+            messaging.selectParticipant().sendSmsMessage('this is an automated sms message');//
 
         },
         'composeNewEmailMessage'(browser){
