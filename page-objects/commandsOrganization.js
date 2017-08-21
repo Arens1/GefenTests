@@ -72,6 +72,19 @@ const organizationCommands = {
     clickBUTabListView(){
         return this.waitForElementVisible('@busListButton', 3000)
             .click('@busListButton')
+    },
+    deleteBU(){
+        return this.waitForElementVisible('@selectBU', 3000)
+            .click('@selectBU')
+            .waitForElementVisible('@selectButton', 3000)
+            .click('@selectButton')
+            .waitForElementVisible('@selectAll', 3000)
+            .click('@selectAll')
+            .waitForElementVisible('@deleteBUButton', 3000)
+            .click('@deleteBUButton')
+            .waitForElementVisible('@approveBUDeletion', 3000)
+            .click('@approveBUDeletion')
+
     }
 };
 
@@ -157,6 +170,18 @@ module.exports = {
         },
         deleteBUButton: {
             selector: 'body > div.ng-scope > div > div > div > gf-tabs > div > div > div > div > md-toolbar > div > div > button'
+        },
+        cancelBUDeletion: {
+            selector: 'body > div.md-dialog-container.ng-scope > md-dialog > md-dialog-actions > button:nth-child(1)'
+        },
+        approveBUDeletion: {
+            selector: 'body > div.md-dialog-container.ng-scope > md-dialog > md-dialog-actions > button.md-raised.md-accent.md-button.md-default-theme.md-ink-ripple'
+        },
+        selectButton: {
+            selector: 'body > div.ng-scope > div > div > div > gf-tabs > div > div > div > div > md-toolbar > div > md-menu > button'
+        },
+        selectAll: {
+            selector: 'md-menu-item[class="select-item"]:nth-of-type(1)'//'button[translate="COMPONENTS.GF_BOTTOM_BULK_TOOLBAR.SELECT_ALL"]'
         }
     }
 };
