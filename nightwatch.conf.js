@@ -22,7 +22,7 @@ module.exports = {
 
 	"test_settings": {
 		"default": {
-			"launch_url": "https://backoffice.onestage.xyz/",
+			"launch_url": "http://localhost:3000",
 			"selenium_host": "localhost",
 			"selenium_port": 4444,
 			"pathname": "/wd/hub",
@@ -38,6 +38,16 @@ module.exports = {
                 }
 			}
 		},
+        "onestage":{
+            "launch_url": "https://backoffice.onestage.xyz",
+            globals: require('./data/staging')
+        },
+        "threestage":{
+            "launch_url": "https://backoffice.threestage.xyz"
+        },
+        "prod":{
+            "launch_url": "https://backoffice.testim.xyz"
+        },
 
 		"ci": {
 			"desiredCapabilities": {
