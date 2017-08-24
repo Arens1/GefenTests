@@ -22,6 +22,10 @@ const operationCommands = {
     clickOrganization(){
         return this.waitForElementVisible('@organization', 3000)
             .click('@organization')
+    },
+    clickRoles(){
+        return this.waitForElementVisible('@roles', 3000)
+          .click('@roles')
     }
 };
 
