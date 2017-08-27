@@ -72,6 +72,11 @@ module.exports = {
         operation.clickBU();
         fillData(browser)
     },
+    'delete BU'(browser){
+        const operation = browser.page.commandsOrganization();
+        operation.deleteBU()
+
+    }
 
 
 };
