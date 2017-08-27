@@ -19,7 +19,13 @@ module.exports = {
 
         operation.validateForm();
      //   browser.pause(3000);
-        operation.clickOrganization()
+        operation.clickOrganization();
 
+    },
+    'click Roles'(browser){
+        const operation = browser.page.commandsOperation();
+
+        operation.validateForm();
+        operation.clickRoles();
     }
 };
