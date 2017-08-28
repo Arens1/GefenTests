@@ -22,7 +22,7 @@ module.exports = {
 
 	"test_settings": {
 		"default": {
-			"launch_url": "http://localhost:3000",
+			"launch_url": "https://backoffice.onestage.xyz/",
 			"selenium_host": "localhost",
 			"selenium_port": 4444,
 			"pathname": "/wd/hub",
