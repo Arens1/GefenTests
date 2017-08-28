@@ -18,8 +18,22 @@ module.exports = {
         const operation = browser.page.commandsOperation();
 
         operation.validateForm();
-     //   browser.pause(3000);
         operation.clickOrganization()
 
+    },
+    'click Rules'(browser){
+        const operation = browser.page.commandsOperation();
+
+        operation.validateForm();
+        operation.clickRules()
+
+    },
+    'click Data'(browser){
+        const operation = browser.page.commandsOperation();
+
+        operation.validateForm();
+        operation.clickData()
+
     }
+
 };
