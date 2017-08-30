@@ -88,7 +88,7 @@ module.exports = {
     },
     elements: {
         newDataButton: {
-            selector: 'button[translate="PAGES.OPERATION.DATA.SIDEBAR.CREATE_NEW"]'
+            selector: 'button[translate="PAGES.OPERATION.DATA.PLUGINS.SIDEBAR.CREATE_NEW"]'
 
         },
         addPermittedRole: {
@@ -125,7 +125,7 @@ module.exports = {
             selector: 'button[ng-class="button.classes"]'
         },
         lastPluginInList: {
-            selector: 'body > div > div > div > div > gf-tabs > div > div > data > div > div > md-list > md-content > md-list-item:nth-last-child(1) > div > button'
+            selector: 'body > div > div > div > div > gf-tabs > div > div > gf-tabs > div > div > plugins > div > div > md-list > md-content > md-list-item:nth-last-child(1) > div > button'
         },
         beforeLastPluginInList: {
             selector: 'body > div > div > div > div > gf-tabs > div > div > data > div > div > md-list > md-content > md-list-item:nth-last-child(2) > div > button'

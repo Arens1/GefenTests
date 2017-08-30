@@ -57,7 +57,8 @@ module.exports = {
 
         data.selectLastPlugin();
         fillData(browser);
-        data.api.refresh()
+        data.api.refresh();
+        browser.end();
     },
     /*'delete last plugin'(browser){
         const data = browser.page.commandsData();
