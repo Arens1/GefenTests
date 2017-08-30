@@ -30,6 +30,10 @@ const operationCommands = {
     clickData(){
         return this.waitForElementVisible('@data', 3000)
             .click('@data')
+    },
+    clickSettings(){
+        return this.waitForElementVisible('@settings', 3000)
+            .click('@settings')
     }
 };
 
