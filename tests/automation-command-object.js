@@ -1,52 +1,25 @@
 const loginCommandObj = require('./login-command-object');
 const dashboardCommandObj = require('./dashboard-command-object');
+const operationCommandObj = require('./operation-command-object');
 
 const login = loginCommandObj['Login with correct username and password'];
 const dashboard = dashboardCommandObj['click on operation card'];
+const operation = operationCommandObj['click Automation'];
+
 
 
 module.exports = {
     'Login'(browser) {
-        login(browser, 'ArensGefen', 'A123456#');
+        login(browser, 'borism', '12345678*');
     },
     'open Operation'(browser) {
         dashboard(browser);
     },
-    'click Automation'(browser) {
-        const automation = browser.page.commandsOperation();
-
-        automation.validateForm();
-        //   browser.pause(3000);
-        automation.clickAutomations()
+    'click on Automation tab'(browser) {
+        operation(browser)
     },
-    'click create new'(browser){
+    'create new automation'(browser){
         const automation = browser.page.commandsAutomation();
-
-        automation.clickCreateNew();
-    },
-    'click on Events'(browser){
-        const automation = browser.page.commandsAutomation();
-        automation.clickOnEvents();
-    },
-    // 'choose new message'(browser){
-    //
-    // },
-    // 'click channel'(browser){
-    //
-    // },
-    // 'choose Push web'(browser){  //notice that notification icon appears -> a way to validate
-    //
-    // },
-    // 'click on title'(browser){
-    //
-    // },
-    // 'input title "test"'(browser){
-    //
-    // },
-    // 'click save'(browser){
-    //
-    // },
-    // 'check if automation created'(browser){
-    //
-    // },
+        automation.createNewAutomation();
+    }
 }

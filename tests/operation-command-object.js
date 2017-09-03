@@ -16,16 +16,18 @@ module.exports = {
     },
     'click Organization'(browser){
         const operation = browser.page.commandsOperation();
-
         operation.validateForm();
      //   browser.pause(3000);
         operation.clickOrganization();
-
     },
     'click Roles'(browser){
         const operation = browser.page.commandsOperation();
-
         operation.validateForm();
         operation.clickRoles();
+    },
+    'click Automation'(browser) {
+        const automation = browser.page.commandsOperation();
+        automation.validateForm();
+        automation.clickAutomations()
     }
 };

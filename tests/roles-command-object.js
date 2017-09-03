@@ -21,7 +21,6 @@ module.exports = {
     },
     'create new role'(browser){
         const roles = browser.page.commandsRoles();
-
         roles.createNewRole();
     }
 };
