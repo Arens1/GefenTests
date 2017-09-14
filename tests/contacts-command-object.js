@@ -20,7 +20,8 @@ module.exports = {
 
         contacts.validateForm()
             .clickOnUpload()
-            .clickGooglePlugin()
+            .clickGooglePlugin();
+        browser.end();
     }
 
 

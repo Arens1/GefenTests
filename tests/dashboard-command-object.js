@@ -37,6 +37,13 @@ module.exports = {
             .clickContacts();
         browser.pause(3000);
     },
+    'click on settings card'(browser){
+        const dashboard = browser.page.commandsDashboard();
+
+        dashboard.validateForm()
+            .clickSettings();
+        browser.pause(3000);
+    },
     'go back to dashboard'(browser){
         const dashboard = browser.page.commandsDashboard();
         dashboard.clickDashboardIcon()

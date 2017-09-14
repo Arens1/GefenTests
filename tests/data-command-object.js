@@ -46,8 +46,6 @@ module.exports = {
         browser.pause(2000);
         data.addURL('/googleplugintest')
         .save()
-            .api.refresh();
-        //browser.end();
 
     },
     'edit plugin'(browser){
@@ -55,20 +53,18 @@ module.exports = {
         const dataCommandObj = require('./data-command-object');
         const fillData = dataCommandObj['fill data in plugin'];
 
-        data.selectLastPlugin();
-        fillData(browser);
         data.api.refresh();
-        browser.end();
+        data.selectLastPlugin();
+        fillData(browser)
     },
-    /*'delete last plugin'(browser){
+    'delete last plugin'(browser){
         const data = browser.page.commandsData();
 
-        data.selectLastPlugin();
-            browser.pause(2000);
-        data.deleteLastPlugin()
-            .api.refresh();
-
-    },*/
+        browser.pause(2000);
+        data.deleteLastPlugin();
+        browser.pause(2000)
+            .end();
+    },
     'verify plugin added to role'(browser){
         login(browser, 'ArensGefen', 'A123456#');
         contactsCard(browser);
