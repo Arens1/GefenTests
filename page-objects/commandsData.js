@@ -11,7 +11,6 @@ const dataCommands = {
     validateForm(){
         return this.waitForElementVisible('@newDataButton', 3000)
             .verify.visible('@newDataButton')
-            .click('@newDataButton')
             .verify.visible('@addPermittedRole')
             .verify.visible('@pluginTitle')
             .verify.visible('@pluginDescription')
@@ -27,6 +26,7 @@ const dataCommands = {
     },
     addRole(role){
         return this.waitForElementVisible('@addPermittedRole', 3000)
+            .clearValue('@addPermittedRole')
             .setValue('@addPermittedRole', role)
     },
     addTitle(title){
@@ -35,6 +35,7 @@ const dataCommands = {
     },
     addDescription(description){
         return this.waitForElementVisible('@pluginDescription', 3000)
+            .clearValue('@pluginDescription')
             .setValue('@pluginDescription', description)
     },
 
@@ -62,6 +63,7 @@ const dataCommands = {
     },
     addURL(url){
         return this.waitForElementVisible('@pluginURL', 3000)
+            .clearValue('@pluginURL')
             .setValue('@pluginURL', url)
     },
     selectLastPlugin(){
@@ -74,9 +76,9 @@ const dataCommands = {
     },
     deleteLastPlugin(){
         return this.waitForElementVisible('@deleteLastPluginInList', 3000)
-            .click('@deleteLastPluginInList');
-          //  .waitForElementVisible('@deleteButton', 3000)
-            //.click('@deleteButton')
+            .click('@deleteLastPluginInList')
+            .waitForElementVisible('@deleteButton', 3000)
+            .click('@deleteButton')
     }
     };
 
@@ -88,7 +90,7 @@ module.exports = {
     },
     elements: {
         newDataButton: {
-            selector: 'button[translate="PAGES.OPERATION.DATA.SIDEBAR.CREATE_NEW"]'
+            selector: 'button[translate="PAGES.OPERATION.DATA.PLUGINS.SIDEBAR.CREATE_NEW"]'
 
         },
         addPermittedRole: {
@@ -125,16 +127,16 @@ module.exports = {
             selector: 'button[ng-class="button.classes"]'
         },
         lastPluginInList: {
-            selector: 'body > div > div > div > div > gf-tabs > div > div > data > div > div > md-list > md-content > md-list-item:nth-last-child(1) > div > button'
+            selector: 'body > div > div > div > div > gf-tabs > div > div > gf-tabs > div > div > plugins > div > div > md-list > md-content > md-list-item:nth-last-child(1) > div > button'
         },
         beforeLastPluginInList: {
             selector: 'body > div > div > div > div > gf-tabs > div > div > data > div > div > md-list > md-content > md-list-item:nth-last-child(2) > div > button'
         },
         deleteLastPluginInList: {
-            selector: 'body > div > div > div > div > gf-tabs > div > div > data > div > div > md-list > md-content > md-list-item:nth-last-child(1) > div > div._md-list-item-inner > div > div.header.flex-grow > md-menu > button'
+            selector: 'body > div.ng-scope > div > div > div > gf-tabs > div > div > gf-tabs > div > div > plugins > div > div > md-list > md-content > md-list-item:nth-last-child(1) > div > div._md-list-item-inner > div > div.header.flex-grow > md-menu > button'
         },
         deleteButton: {
-            selector: 'button[ng-click="$ctrl.deletePlugin($index)"]'
+            selector: 'body > div:nth-last-child(1)>md-menu-content > md-menu-item > button'
         }
     }
 };

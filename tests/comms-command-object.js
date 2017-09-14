@@ -71,7 +71,7 @@ const dashboard = dashboardCommandObj['click on messaging card'];
          browser.pause(3000);
          messaging.startConversation();
          browser.pause(3000);
-         messaging.searchParticipant('michael arens');
+         messaging.searchParticipant('david arens');
          browser.pause(5000);
          messaging.selectParticipant();
          browser.pause(2000);
@@ -100,11 +100,11 @@ const dashboard = dashboardCommandObj['click on messaging card'];
 
          messaging.clickUploadImage('/test.png');
          console.log(fs.existsSync(__dirname+ '/test.png'));
-         browser.pause(2000);
-
+         browser.pause(2000)
+             .end();
          }//,
          //'end'(browser){
-         //   browser.end();
+
          //}
 
          };

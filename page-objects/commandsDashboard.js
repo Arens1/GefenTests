@@ -12,8 +12,8 @@ const dashboardCommands = {
             .verify.visible('@documents')
             .verify.visible('@adwords')
             .verify.visible('@website')
-            .verify.visible('@siteThemes')
-            .verify.visible('@reports')*/
+            .verify.visible('@siteThemes')*/
+            .verify.visible('@settings')
             .verify.visible('@operation')
             .verify.visible('@associates')
             .verify.visible('@contacts')
@@ -39,6 +39,10 @@ const dashboardCommands = {
     clickAssociates(){
         return this.waitForElementVisible('@associates', 3000)
             .click('@associates')
+    },
+    clickSettings(){
+        return this.waitForElementVisible('@settings', 3000)
+            .click('@settings')
     }
 };
 
@@ -90,7 +94,7 @@ module.exports = {
             selector: 'gf-dashboard-card[gfpermitted="userMaster.operation"]'
         },
         settings: {
-            selector: 'gf-dashboard-card[gfpermitted="COMPONENTS.SIDE_MENU.SETTINGS"]'
+            selector: 'gf-dashboard-card[ui-sref="userMaster.user_settings"]'
         },
         logo: {
             selector: 'div[class="company-logo"]'

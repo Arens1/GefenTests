@@ -17,23 +17,33 @@ module.exports = {
     'click Organization'(browser){
         const operation = browser.page.commandsOperation();
 
-        operation.validateForm();
-        operation.clickOrganization()
+        operation.validateForm()
+            .clickOrganization()
 
     },
-    'click Rules'(browser){
+    'click Roles'(browser){
         const operation = browser.page.commandsOperation();
 
-        operation.validateForm();
-        operation.clickRules()
+        operation.validateForm()
+            .clickRoles()
 
     },
     'click Data'(browser){
         const operation = browser.page.commandsOperation();
 
-        operation.validateForm();
-        operation.clickData()
+        operation.validateForm()
+            .clickData();
 
+    },
+    'click Settings'(browser){
+        const operation = browser.page.commandsOperation();
+
+        operation.validateForm()
+            .clickSettings();
+    },
+    'end test'(browser){
+        browser.end();
     }
+
 
 };
