@@ -37,8 +37,8 @@ const rolesCommands = {
           .waitForElementVisible('@confirmDelete', 5000)
           .click('@confirmDelete');
     }
-
 }
+
 
 module.exports = {
     commands: [rolesCommands],
