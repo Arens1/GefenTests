@@ -39,6 +39,10 @@ const dashboardCommands = {
     clickAssociates(){
         return this.waitForElementVisible('@associates', 3000)
             .click('@associates')
+    },
+    clickEmailCampaigns() {
+        return this.waitForElementVisible('@emailCampaigns', 3000)
+          .click('@emailCampaigns')
     }
 };
 

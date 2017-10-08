@@ -12,7 +12,10 @@ const rolesCommands = {
           .waitForElementVisible('@firstCheckbox', 3000)
           .click('@firstCheckbox')
           .waitForElementVisible('@saveRoleButton', 2000)
-          .click('@saveRoleButton')
+          .click('@saveRoleButton');
+    },
+    editRole(){
+        return this.waitForElementVisible('@newRoleButton', 3000)
           .waitForElementVisible('@goToAutomatedRole', 2500)
           .click('@goToAutomatedRole')
           .waitForElementVisible('@detailsButton', 2500)
@@ -23,7 +26,10 @@ const rolesCommands = {
           .waitForElementVisible('@secondCheckbox', 2000)
           .click('@secondCheckbox')
           .waitForElementVisible('@saveRoleButton', 3500)
-          .click('@saveRoleButton')
+          .click('@saveRoleButton');
+    },
+    deleteRole(){
+        return this.waitForElementVisible('@newRoleButton', 3000)
           .waitForElementVisible('@moreOptionsButton', 5000)
           .click('@moreOptionsButton')
           .waitForElementVisible('@deleteRoleInDropdown', 5000)
@@ -31,6 +37,7 @@ const rolesCommands = {
           .waitForElementVisible('@confirmDelete', 5000)
           .click('@confirmDelete');
     }
+
 }
 
 module.exports = {

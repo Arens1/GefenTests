@@ -11,7 +11,7 @@ const operation = operationCommandObj['click Roles'];
 
 module.exports = {
     'Login'(browser) {
-        login(browser, 'ArensGefen', 'A123456#');
+        login(browser, 'yotamlevy', 'Y12345678*');
     },
     'open Operation'(browser) {
         dashboard(browser)
@@ -21,7 +21,15 @@ module.exports = {
     },
     'create new role'(browser){
         const roles = browser.page.commandsRoles();
-
         roles.createNewRole();
+    },
+    'edit role'(browser){
+        const roles = browser.page.commandsRoles();
+        roles.editRole();
+    },
+    'delete role'(browser) {
+        const roles = browser.page.commandsRoles();
+        roles.deleteRole();
     }
+
 };
