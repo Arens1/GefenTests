@@ -6,7 +6,7 @@ const login = loginCommandObj['Login with correct username and password']
 
 module.exports = {
     'Login'(browser){
-        login(browser,'ArensGefen','A123456#');
+        login(browser,'yotamlevy','Y12345678*');
     },
     'click on messaging card'(browser){
         const dashboard = browser.page.commandsDashboard();
@@ -37,11 +37,11 @@ module.exports = {
             .clickContacts();
         browser.pause(3000);
     },
-    'click on settings card'(browser){
+    'click on Email Campaigns card'(browser){
         const dashboard = browser.page.commandsDashboard();
 
-        dashboard.validateForm()
-            .clickSettings();
+        dashboard.validateForm().clickEmailCampaigns();
+
         browser.pause(3000);
     },
     'go back to dashboard'(browser){

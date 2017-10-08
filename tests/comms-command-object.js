@@ -66,6 +66,18 @@ const dashboard = dashboardCommandObj['click on messaging card'];
             messaging.selectParticipant().sendSmsMessage('this is an automated E-Mail message');
 
         },
+        'composeNewEmailMessage'(browser){
+            const messaging = browser.page.commandsComms();
+
+            messaging.validateForm();
+            browser.pause(3000);
+            messaging.startEmailConversation();
+            browser.pause(3000);
+            messaging.searchParticipant('yotam levy');
+            browser.pause(5000);
+            messaging.selectParticipant().sendSmsMessage('this is an automated E-Mail message');
+
+        },
          'groupChat'(browser){
          const messaging = browser.page.commandsComms();
          browser.pause(3000);
