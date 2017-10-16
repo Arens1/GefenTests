@@ -15,12 +15,12 @@ const emailCampaignsCommands = {
         return this
     },
 
-    createNewParentCampaign() {
+    createNewParentCampaign(parentCampaignNameInput) {
         return this.waitForElementVisible('@newParentButton', 3000)
           .click('@newParentButton')
           .waitForElementVisible('@parentCampaignNameInput', 4000)
           .click('@parentCampaignNameInput')
-          .setValue('@parentCampaignNameInput', "New Automated Parent Campaign")
+          .setValue('@parentCampaignNameInput', parentCampaignNameInput)
           // .waitForElementVisible('@preventEditCheckbox', 4500)
           // .click('@preventEditCheckbox')
           .waitForElementVisible('@campaignIDInput', 3000)
