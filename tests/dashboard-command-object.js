@@ -41,7 +41,6 @@ module.exports = {
         const dashboard = browser.page.commandsDashboard();
 
         dashboard.validateForm().clickEmailCampaigns();
-
         browser.pause(3000);
     },
     'go back to dashboard'(browser){
