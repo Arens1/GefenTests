@@ -19,7 +19,7 @@ module.exports = {
 
         associates.validateForm()
             .SearchUser('david arens');
-        browser.pause(3000);
-        associates.clickChat()
+        browser.pause(2000)
+        .end();
     }
 };

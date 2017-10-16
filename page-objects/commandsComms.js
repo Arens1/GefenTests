@@ -167,7 +167,7 @@ module.exports = {
             selector: 'div[class="filters-menu"] div:nth-of-type(1) button[type="button"]'
         },
         editButton: {
-            selector: 'div[class="ConversationSubject"] div[class="buttons"] button[type="button"]'
+            selector: 'div[class="buttons"] button[type="button"]'
         },
         editTextField: {
             selector: 'input[class="subject-input"]'
