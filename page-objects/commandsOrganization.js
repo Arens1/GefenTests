@@ -21,31 +21,40 @@ const organizationCommands = {
      fillNameAndAddress(agencyName, Address){
          return this.waitForElementVisible('@AgencyName', 3000)
 
+             .clearValue('@AgencyName')
              .setValue('@AgencyName', agencyName)
-            .waitForElementVisible('@fullAddress', 3000)
+             .waitForElementVisible('@fullAddress', 3000)
+             .clearValue('@fullAddress')
              .setValue('@fullAddress',Address)
 
 
      },
     fillPhoneAndEmail(Address, number){
         return this.waitForElementVisible('@phoneNumber', 3000)
+
+            .clearValue('@phoneNumber')
             .setValue('@phoneNumber', number)
             .waitForElementVisible('@emailAddress', 3000)
+            .clearValue('@emailAddress')
             .setValue('@emailAddress', Address)
 
     },
     fillManagingBU(managingBUName){
         return this.waitForElementVisible('@managingBU', 3000)
+            .clearValue('@managingBU')
             .setValue('@managingBU', managingBUName)
     },
     fillExternalIdAndDescription(id, description){
         return this.waitForElementVisible('@externalId', 3000)
+            .clearValue('@externalId')
             .setValue('@externalId', id)
             .waitForElementVisible('@Description', 3000)
+            .clearValue('@Description')
             .setValue('@Description', description)
     },
     fillLegalAddress(address){
         return this.waitForElementVisible('@legalAddress', 3000)
+            .clearValue('@legalAddress')
             .setValue('@legalAddress', address)
     },
     clickSave(){
@@ -61,6 +70,7 @@ const organizationCommands = {
         return this.waitForElementVisible('@searchButton', 3000)
             .click('@searchButton')
             .waitForElementVisible('@searchTextField', 3000)
+            .clearValue('@searchTextField')
             .setValue('@searchTextField', BUname)
 
     },

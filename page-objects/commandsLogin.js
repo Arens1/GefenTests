@@ -34,7 +34,7 @@ module.exports = {
 	},
 	elements: {
 		username: {
-			selector: 'input[id=input_0]'
+			selector: 'input[ng-model="loginCtrl.emailOrUsername"]'
 		},
 		password: {
 			selector: 'input[type=password]'

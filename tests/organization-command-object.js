@@ -75,6 +75,9 @@ module.exports = {
     'delete BU'(browser){
         const operation = browser.page.commandsOrganization();
         operation.deleteBU()
+            .api.refresh();
+        browser.end();
+
 
     }
 

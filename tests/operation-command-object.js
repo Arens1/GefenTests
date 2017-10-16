@@ -29,5 +29,27 @@ module.exports = {
         const automation = browser.page.commandsOperation();
         automation.validateForm();
         automation.clickAutomations()
+        operation.validateForm()
+            .clickOrganization()
+
+    },
+
+    'click Data'(browser){
+        const operation = browser.page.commandsOperation();
+
+        operation.validateForm()
+            .clickData();
+
+    },
+    'click Settings'(browser){
+        const operation = browser.page.commandsOperation();
+
+        operation.validateForm()
+            .clickSettings();
+    },
+    'end test'(browser){
+        browser.end();
     }
+
+
 };

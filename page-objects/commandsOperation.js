@@ -30,6 +30,15 @@ const operationCommands = {
     clickRoles() {
         return this.waitForElementVisible('@roles', 3000)
             .click('@roles')
+
+    },
+    clickData(){
+        return this.waitForElementVisible('@data', 3000)
+            .click('@data')
+    },
+    clickSettings(){
+        return this.waitForElementVisible('@settings', 3000)
+            .click('@settings')
     }
 };
 
